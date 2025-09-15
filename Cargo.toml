@@ -1,0 +1,10 @@
+[package]
+name = "rust-buddy"
+version = "0.1.0"
+edition = "2024"
+
+[lints.rust]
+unsafe_code = "forbid"
+unused = "allow"
+
+[dependencies]
