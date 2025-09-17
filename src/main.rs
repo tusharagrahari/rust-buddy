@@ -1,4 +1,6 @@
 mod error;
+use std::env;
+use crate::ais::asst;
 
 pub use self::error::{Error, Result};
 mod ais;
@@ -16,6 +18,19 @@ async fn main() {
 
 
 async fn start() -> Result<()> {
-    println!("Starting Rust Buddy...");
+    let oac = ais::new_oa_client()?;
+
+    let asst_id = asst::create_asst(
+        &oac,
+        asst::CreateConfig {
+            name: "buddy-01".to_string(),
+            model: "gpt-4o".to_string(),
+        },
+    ).await?;
+    println!("Created assistant with ID: {}", asst_id);
+    // println!("oac: {:?}", oac);
     Ok(())
 }
+
+
+//asst_cjIZjmFRw0mk4Nh0ORqttDBT
