@@ -17,12 +17,13 @@ async fn main() {
 async fn start() -> Result<()> {
     let oac = ais::new_oa_client()?; // Create OpenAI client wrapper
 
-    let asst_id = asst::create_asst(
+    let asst_id = asst::load_or_create_asst(
         &oac,
         asst::CreateConfig {
-            name: "buddy-01".to_string(),
+            name: "buddy-02".to_string(),
             model: "gpt-4o".to_string(),
         },
+        false,
     )
     .await?;
     println!("Created assistant with ID: {}", asst_id);

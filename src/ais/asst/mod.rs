@@ -62,6 +62,7 @@ pub async fn load_or_create_asst(
 }
 
 pub async fn delete(oac: &OaClient, asst_id: &AsstId) -> Result<()> {
+    // also need to delete the files associated with the asst
     let oa_assts = oac.assistants();
     oa_assts.delete(&asst_id).await?;
     Ok(())
