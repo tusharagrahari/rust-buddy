@@ -1,5 +1,5 @@
 pub mod asst;
-use async_openai::{config::OpenAIConfig, Client};
+use async_openai::{Client, config::OpenAIConfig};
 use std::env;
 
 use crate::Result;
